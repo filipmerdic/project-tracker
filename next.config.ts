@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/project-tracking' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/project-tracking/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/project-tracker' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/project-tracker/' : '',
   images: {
     unoptimized: true,
   },
