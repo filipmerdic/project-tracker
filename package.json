@@ -9,7 +9,7 @@
     "lint": "next lint",
     "export": "next build",
     "predeploy": "npm run export",
-    "deploy": "gh-pages -d out"
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",

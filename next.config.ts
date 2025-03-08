@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // This is important for GitHub Pages
+  trailingSlash: true,
+  // Disable server-side features
+  reactStrictMode: true,
 };
 
 export default nextConfig;
