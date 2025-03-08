@@ -35,17 +35,17 @@ export function ProjectDialog({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger || (
-          <Button variant="default">
+          <Button variant="default" className="btn-modern-primary">
             {project ? "Edit Project" : "Add Project"}
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[500px] bg-white border-border shadow-lg rounded-xl dialog-content">
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle className="dialog-title">
             {project ? "Edit Project" : "Add New Project"}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="dialog-description">
             {project
               ? "Update the project details below."
               : "Fill in the project details below to add a new project."}
