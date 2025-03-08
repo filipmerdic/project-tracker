@@ -20,7 +20,12 @@ export default function Home() {
       try {
         const parsedProjects = JSON.parse(savedProjects);
         // Convert string dates back to Date objects
-        const projectsWithDates = parsedProjects.map((project: any) => ({
+        const projectsWithDates = parsedProjects.map((project: Omit<Project, 'finalDeadline' | 'nextPhaseDate' | 'createdAt' | 'updatedAt'> & {
+          finalDeadline: string;
+          nextPhaseDate: string;
+          createdAt?: string;
+          updatedAt?: string;
+        }) => ({
           ...project,
           finalDeadline: new Date(project.finalDeadline),
           nextPhaseDate: new Date(project.nextPhaseDate),
