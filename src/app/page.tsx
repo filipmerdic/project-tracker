@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Project } from "@/types/project";
+import { Project, projectStatusOptions } from "@/types/project";
 import { ProjectTable } from "@/components/ProjectTable";
 import { ProjectDialog } from "@/components/ProjectDialog";
 import { Button } from "@/components/ui/button";
@@ -68,6 +68,26 @@ export default function Home() {
     setEditingProject(project);
   };
 
+  const handleStatusChange = (projectId: string, newStatus: typeof projectStatusOptions[number]) => {
+    setProjects(
+      projects.map((project) =>
+        project.id === projectId
+          ? { ...project, status: newStatus, updatedAt: new Date() }
+          : project
+      )
+    );
+  };
+
+  const handleNextPhaseDateChange = (projectId: string, newDate: Date) => {
+    setProjects(
+      projects.map((project) =>
+        project.id === projectId
+          ? { ...project, nextPhaseDate: newDate, updatedAt: new Date() }
+          : project
+      )
+    );
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
       <div className="w-full max-w-5xl">
@@ -94,6 +114,8 @@ export default function Home() {
               projects={projects}
               onEdit={openEditDialog}
               onDelete={handleDeleteProject}
+              onStatusChange={handleStatusChange}
+              onNextPhaseDateChange={handleNextPhaseDateChange}
             />
           </CardContent>
         </Card>
