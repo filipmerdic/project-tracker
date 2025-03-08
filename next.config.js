@@ -14,10 +14,9 @@ const nextConfig = {
   reactStrictMode: true,
   // Disable source maps in production
   productionBrowserSourceMaps: false,
-  // Disable unnecessary features for static export
+  // Remove experimental section that's causing issues
   experimental: {
-    // Disable features that require server components
-    serverActions: false,
+    // Empty experimental section
   },
 };
 

@@ -28,7 +28,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
     })
   };
   
-  // @ts-ignore - This is a mock client
+  // @ts-expect-error - This is a mock client that doesn't match the full Supabase client type
   supabase = mockClient;
 } else {
   // Create real Supabase client
