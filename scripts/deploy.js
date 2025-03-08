@@ -12,6 +12,6 @@ fs.writeFileSync(path.join('out', '.nojekyll'), '');
 
 // Deploy to GitHub Pages
 console.log('Deploying to GitHub Pages...');
-execSync('npx gh-pages -d out -t true', { stdio: 'inherit' });
+execSync('npx gh-pages -d out', { stdio: 'inherit' });
 
 console.log('Deployment complete!'); 
