@@ -2,13 +2,13 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ deploy ]
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       branch:
         description: 'Branch to deploy'
         required: true
-        default: 'deploy'
+        default: 'main'
 
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.branch || 'deploy' }}
+          ref: ${{ github.event.inputs.branch || 'main' }}
       
       - name: Setup Node
         uses: actions/setup-node@v4
