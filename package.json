@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:deploy": "node scripts/build-for-deploy.js",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:deploy",
     "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
