@@ -17,7 +17,16 @@ export async function getAllProjects(): Promise<Project[]> {
   }
   
   // Convert string dates back to Date objects
-  return data.map((project: any) => ({
+  return data.map((project: {
+    id: string;
+    name: string;
+    status: string;
+    finalDeadline: string;
+    nextPhaseDate: string;
+    createdAt?: string;
+    updatedAt?: string;
+    [key: string]: unknown;
+  }) => ({
     ...project,
     finalDeadline: new Date(project.finalDeadline),
     nextPhaseDate: new Date(project.nextPhaseDate),

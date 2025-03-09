@@ -2,8 +2,13 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ deploy ]
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'deploy'
 
 permissions:
   contents: read
@@ -16,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || 'deploy' }}
       
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,6 +38,7 @@ jobs:
         run: |
           echo "Node version: $(node -v)"
           echo "NPM version: $(npm -v)"
+          echo "Current branch: $(git branch --show-current)"
           echo "Directory structure:"
           ls -la
           echo "Package.json content:"

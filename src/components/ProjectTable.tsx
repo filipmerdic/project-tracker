@@ -144,7 +144,15 @@ export function ProjectTable({
                   )}
                 </TableCell>
                 <TableCell className="text-right">
-                  <div className="flex justify-end">
+                  <div className="flex justify-end space-x-2">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => onEdit(project)}
+                      className="border-border hover:bg-primary/10 hover:text-primary text-gray-700"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg>
+                    </Button>
                     <Button
                       variant="outline"
                       size="icon"
